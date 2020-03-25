@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class PowerPlant : RessourceGenerator
+    class OxygenGenerator : RessourceGenerator
     {
         public override List<Ressource> RessourceBySecond()
         {
-            return new List<Ressource>() { new Ressource { name = PlanetType.ENERGIE, lastUpdate = DateTime.Now, lastQuantity = (3 * level) + 10 } };
+            return new List<Ressource>() { new Ressource { name = PlanetType.OXYGENE, lastUpdate = DateTime.Now, lastQuantity = (20*(level / 2)) + 5 } };
         }
 
         public override List<Ressource> NextCost()
@@ -31,7 +31,7 @@ namespace BO
             var oxygene = new Ressource { name = PlanetType.OXYGENE, lastUpdate = DateTime.Now, lastQuantity = 0 };
             var acier = new Ressource { name = PlanetType.STEEL, lastUpdate = DateTime.Now, lastQuantity = 0 };
             var uranium = new Ressource { name = PlanetType.URANIUM, lastUpdate = DateTime.Now, lastQuantity = 0 };
-           
+
 
             for (int i = 1; i <= level; i++)
             {
@@ -48,18 +48,17 @@ namespace BO
 
         public int? OxygeneQty(int? lvl)
         {
-            return lvl + (200 * (lvl / 10)) + 20;
+            return (200 * (lvl / 12)) + 20;
         }
 
         public int? AcierQty(int? lvl)
         {
-            return lvl + (100 * (lvl / 8)) + 20;
+            return (1000*(lvl / 8)) + 20;
         }
 
         public int? UraniumQty(int? lvl)
         {
-            return (int)Math.Pow((double)lvl, 3) + (200 * (lvl / 20)) + 20;
+            return (1500*(lvl / 20)) + 20;
         }
-
     }
 }

@@ -10,7 +10,7 @@ namespace BO
     {
         ENERGIE = 1,
         OXYGENE = 2,
-        ACIER = 3,
+        STEEL = 3,
         URANIUM = 4
 
     }
